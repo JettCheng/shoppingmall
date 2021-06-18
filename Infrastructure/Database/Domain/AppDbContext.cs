@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using Core.Entities;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 
@@ -15,11 +14,11 @@ namespace Infrastructure.Database.Domain
         {
 
         }
-        
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductImage> ProductImages { get; set; }
         public DbSet<ProductType> ProductTypes { get; set; }
 
+        // 準備 seeds
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             string seedsUrl = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)+ "../../../../../Infrastructure/Database/Domain/Seeds/";
@@ -34,8 +33,6 @@ namespace Infrastructure.Database.Domain
             var productTypesData = File.ReadAllText(seedsUrl+"productTypes.json");
             IList<ProductType> productTypes = JsonConvert.DeserializeObject<IList<ProductType>>(productTypesData);
             modelBuilder.Entity<ProductType>().HasData(productTypes);
-
-
         }
     }
 }
