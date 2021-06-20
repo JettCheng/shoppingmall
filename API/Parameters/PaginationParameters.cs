@@ -28,7 +28,7 @@
         // 頁碼預設值為 1
         private int _pageIndex = 1;
         // 每頁預設10筆資料
-        private int _pageSize = 10;
+        private int _pageSize = 6;
         // 每頁預設最多50筆
         private int maxPageSize = 50;
     }

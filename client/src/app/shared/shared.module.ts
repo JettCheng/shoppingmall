@@ -8,9 +8,16 @@ import { BarChartComponent } from './components/bar-chart/bar-chart.component';
 import { LineChartComponent } from './components/line-chart/line-chart.component';
 import { HighlightModule, HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
 import 'highlight.js';
+import { AccordionModule } from 'ngx-bootstrap/accordion';
+import { PaginationModule } from 'ngx-bootstrap/pagination';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
 
 
-const ChartjsModuleImport = [
+
+
+
+const chartjsModule = [
     CommonModule,
     ChartsModule.forRoot({
       defaults: {},
@@ -18,6 +25,14 @@ const ChartjsModuleImport = [
     }),
     MarkdownModule.forRoot({ loader: HttpClient }),
     HighlightModule
+];
+const bootstrapModule = [
+  AccordionModule.forRoot(),
+  CarouselModule.forRoot()
+];
+const ngxModule = [
+  PaginationModule.forRoot(),
+  NgxSpinnerModule
 ]
 
 @NgModule({
@@ -27,7 +42,9 @@ const ChartjsModuleImport = [
   ],
   imports: [
     CommonModule,
-    ChartjsModuleImport
+    chartjsModule,
+    bootstrapModule,
+    ngxModule
   ],
   providers: [
     {
@@ -42,7 +59,9 @@ const ChartjsModuleImport = [
     LineChartComponent,
     BarChartComponent,
     HighlightModule,
-    ChartsModule
+    ChartsModule,
+    bootstrapModule,
+    ngxModule,
   ]
 })
 

@@ -1,8 +1,30 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { HomeComponent } from './home/home.component';
+import { ShopChartsComponent } from './shop-charts/shop-charts.component';
 
-const routes: Routes = [];
-
+const routes: Routes = [
+  { 
+    path: '',
+    component: HomeComponent, 
+    data: {breadcrumb: 'Home'} 
+  },
+  { 
+    path: 'shop',
+    loadChildren: () => import('./shop/shop.module').then(mod => mod.ShopModule),
+    data: {breadcrumb: 'Shop'}
+  },
+  { 
+    path: 'chart', 
+    component: ShopChartsComponent,
+    data: {breadcrumb: 'Chart'}
+  },
+  //   path: 'account',
+  //   loadChildren: () => import('./account/account.module').then(mod => mod.AccountModule),
+  //   data: { breadcrumb: {skip: true} }
+  // },
+  { path: '**', redirectTo: '', pathMatch: 'full' }
+];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]

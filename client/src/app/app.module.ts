@@ -1,18 +1,33 @@
-import { AppComponent } from './app.component';
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { Route, RouterModule } from '@angular/router';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
+import { CoreModule } from './core/core.module';
+import { HomeModule } from './home/home.module';
+import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ShopChartsModule } from './shop-charts/shop-charts.module';
+import { LoadingInterceptor } from './core/interceptors/loading.interceptor';
 
-const routes: Route[] = [];
+
 @NgModule({
   declarations: [
     AppComponent,
   ],
   imports: [
+    BrowserAnimationsModule,
     BrowserModule,
-    RouterModule.forRoot(routes),
-    SharedModule
+    AppRoutingModule, // 少了這個 router-outlet 不會正常顯示
+    SharedModule,
+    CoreModule, 
+    HomeModule,
+    HttpClientModule,
+    ShopChartsModule,    
+
+  ],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },
   ],
   bootstrap: [ AppComponent ]
 })

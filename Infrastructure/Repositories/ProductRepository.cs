@@ -25,7 +25,7 @@ namespace Infrastructure.Repositories
             IQueryable<Product> result = _context.Products
                 .Include(p => p.ProductType)
                 .Include(p => p.ProductImages);
-                
+
             if (!(string.IsNullOrEmpty(sort)))
             {
                 // 把兩個需要 mapping 的 class 丟進去，回傳的就是 mapping 成功的屬性對照列表
@@ -35,6 +35,11 @@ namespace Infrastructure.Repositories
                 result = result.ApplySort(sort, productMappingDictionary);
             }
             return await PaginationList<Product>.CreateAsync(pageIndex, pageSize, result);
+        }
+
+        public async Task<IEnumerable<ProductType>> GetProductTypesAsync()
+        {
+            return await _context.ProductTypes.ToListAsync();
         }
 
         public void AddProduct(Product product)
@@ -48,14 +53,39 @@ namespace Infrastructure.Repositories
         }
 
 
-        public Task<Product> GetProductByIdAsync(Guid productId)
+        public async Task<Product> GetProductByIdAsync(Guid productId)
         {
-            throw new NotImplementedException();
+            return await _context.Products.Include(p => p.ProductImages).FirstOrDefaultAsync(p => p.Id == productId);
         }
 
-        public Task<IEnumerable<Product>> GetProductListBySearchingAsync(string keyword, int pageSize, int pageNumber, string sort)
+        public async Task<IPaginationList<Product>> GetProductsAsync(string keyword, string productTypeId, int pageSize, int pageIndex, string sort)
         {
-            throw new NotImplementedException();
+
+            IQueryable<Product> result = _context.Products
+                .Include(p => p.ProductType)
+                .Include(p => p.ProductImages);
+
+            if (!string.IsNullOrEmpty(keyword))
+            {
+                result = result.Where(p => p.Title.Contains(keyword));
+            }
+
+            if (!string.IsNullOrEmpty(productTypeId))
+            {
+                result = result.Where(p => p.ProductTypeId.Contains(productTypeId));
+            }
+
+            if (!(string.IsNullOrEmpty(sort)))
+            {
+                // 把兩個需要 mapping 的 class 丟進去，回傳的就是 mapping 成功的屬性對照列表
+                var productMappingDictionary = _propertyMappingService.GetPropertyMapping<ProductDto, Product>();
+
+                // 根據屬性對照列表結果將資料進行重新排序
+                result = result.ApplySort(sort, productMappingDictionary);
+            }
+
+            return await PaginationList<Product>.CreateAsync(pageIndex, pageSize, result);
+
         }
 
         public Task<IEnumerable<Product>> GetProductsByProductTypeIdAsync(string productTypeId, int pageSize, int pageNumber, string sort)
