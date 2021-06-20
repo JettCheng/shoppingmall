@@ -1,0 +1,11 @@
+<header>
+    <span *ngIf="totalCount && totalCount > 0" >第
+        <strong>
+            {{(pageIndex-1) * pageSize+1}} -
+            {{pageIndex*pageSize 
+                > totalCount
+                ? totalCount : pageIndex * pageSize
+            }} 筆
+        </strong><strong>，共 {{totalCount}} 筆搜尋結果</strong></span>
+        <span *ngIf="totalCount === 0">共<strong> 0 </strong>筆搜尋結果</span>
+</header>

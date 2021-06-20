@@ -134,7 +134,7 @@ export class LineChartComponent {
       const num = LineChartComponent.generateNumber(i);
       x.data.push(num);
     });
-    this.lineChartData?.labels?.push(`Label ${ this.lineChartData.labels.length }`);
+    this.lineChartData?.labels?.push(`${ this.lineChartData.labels.length }`);
 
     this.chart?.update();
   }

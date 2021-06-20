@@ -12,6 +12,8 @@ import { AccordionModule } from 'ngx-bootstrap/accordion';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
+import { PagingHeaderComponent } from './components/paging-header/paging-header.component';
+import { PagerComponent } from './components/pager/pager.component';
 
 
 
@@ -38,7 +40,9 @@ const ngxModule = [
 @NgModule({
   declarations: [
     LineChartComponent,
-    BarChartComponent
+    BarChartComponent,
+    PagingHeaderComponent,
+    PagerComponent,
   ],
   imports: [
     CommonModule,
@@ -60,6 +64,8 @@ const ngxModule = [
     BarChartComponent,
     HighlightModule,
     ChartsModule,
+    PagerComponent,
+    PagingHeaderComponent,
     bootstrapModule,
     ngxModule,
   ]

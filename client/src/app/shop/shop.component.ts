@@ -13,13 +13,15 @@ import { ShopService } from './shop.service';
 export class ShopComponent implements OnInit {
   @ViewChild('search', { static: false }) searchTerm!: ElementRef;
 
+  error: string;
   products: IProduct[] = [];
   productTypeList: IProductType[] = [];
   shopParams: ShopParams = new ShopParams();
   paginationParams: PaginationParams = new PaginationParams();
   sortOptions = [
-    { name: '價格', value: 'orignalPrice' },
-    { name: '商品名稱', value: 'title' }
+    {name: '名稱', value: 'titie'},
+    {name: '價格由低到高', value: 'originalPrice asc'},
+    {name: '價格由高到低', value: 'originalPrice desc'},
   ];
 
   constructor(private shopService: ShopService) { }
@@ -56,11 +58,11 @@ export class ShopComponent implements OnInit {
     this.getProducts();
   }
 
-  onPagerChange(event: any) {
+  onPageChanged(pageIndex: any) {
     const shopParams = this.shopService.getShopParams();
     const paginationParams = this.shopService.getPaginationParams();
-    if (paginationParams.PageIndex!==event) {
-      paginationParams.PageIndex = event;
+    if (paginationParams.PageIndex!==pageIndex) {
+      paginationParams.PageIndex = pageIndex;
       this.shopService.setPaginationParams(paginationParams);
       this.getProducts();
     }
@@ -73,6 +75,12 @@ export class ShopComponent implements OnInit {
     this.getProducts();
   }
 
+  onSortSelected(sort: string) {
+    const params = this.shopService.getShopParams();
+    params.sort = sort;
+    this.shopService.setShopParams(params);
+    this.getProducts();
+  }
   // shop.service.ts 
   getProductTypes() {
     this.shopService.getProductTypes().subscribe(response => {
@@ -102,7 +110,12 @@ export class ShopComponent implements OnInit {
       var xpaginationString = response.headers.get('x-pagination')!;
       this.paginationParams = JSON.parse(xpaginationString);
     }, error => {
-      console.log(error)
+      if (error.error.statusCode===404) {
+        this.products = [];
+        this.shopParams = new ShopParams();
+        this.paginationParams = new PaginationParams();
+        this.error = error.error.message;
+      }
     });
   }
 }

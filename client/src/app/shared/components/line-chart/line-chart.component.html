@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container mt-3">
   <div class="row">
     <section class="col-1"></section>
     <section class="col-5">
@@ -10,20 +10,20 @@
       (chartClick)="chartClicked($event)"></canvas>
     </section>
     <section class="col-5">
-      <table class="table table-responsive table-condensed">
+      <table class="table table-dark">
         <tr>
-          <th *ngFor="let label of lineChartData.labels">{{label}}</th>
+          <th scope="col" *ngFor="let label of lineChartData.labels">{{label}}</th>
         </tr>
         <tr *ngFor="let d of lineChartData.datasets; let i=index" [class]="'line-'+i">
           <td *ngFor="let label of lineChartData.labels; let j=index">{{d && d.data[j]}}</td>
         </tr>
       </table>
       <div class="button-row">
-        <button mat-button mat-raised-button color="primary" (click)="randomize()">Randomize</button>
-        <button mat-button mat-raised-button color="primary" (click)="pushOne()">Push</button>
-        <button mat-button mat-raised-button color="primary" (click)="changeColor()">Recolor</button>
-        <button mat-button mat-raised-button color="primary" (click)="hideOne()">Toggle Series B</button>
-        <button mat-button mat-raised-button color="primary" (click)="changeLabel()">Change Label</button>
+        <button class="btn btn-primary mr-3 mb-3" (click)="randomize()">Randomize</button>
+        <button class="btn btn-primary mr-3 mb-3" (click)="pushOne()">Push</button>
+        <button class="btn btn-primary mr-3 mb-3" (click)="changeColor()">Recolor</button>
+        <button class="btn btn-primary mr-3 mb-3" (click)="hideOne()">Toggle Series B</button>
+        <button class="btn btn-primary mr-3 mb-3" (click)="changeLabel()">Change Label</button>
       </div>
     </section>
   </div>
