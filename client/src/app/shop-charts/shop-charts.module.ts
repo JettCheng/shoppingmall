@@ -13,8 +13,8 @@ import { SharedModule } from '../shared/shared.module';
     CommonModule,
     SharedModule
   ], 
-  exports: [
-    ShopChartsComponent
-  ]
+  // exports: [
+  //   ShopChartsComponent
+  // ]
 })
 export class ShopChartsModule { }

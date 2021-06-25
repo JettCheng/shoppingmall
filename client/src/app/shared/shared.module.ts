@@ -14,9 +14,11 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { PagingHeaderComponent } from './components/paging-header/paging-header.component';
 import { PagerComponent } from './components/pager/pager.component';
-
-
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TextInputComponent } from './components/text-input/text-input.component';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { BasketSummaryComponent } from './components/basket-summary/basket-summary.component';
+import { RouterModule } from '@angular/router';
 
 
 const chartjsModule = [
@@ -30,22 +32,32 @@ const chartjsModule = [
 ];
 const bootstrapModule = [
   AccordionModule.forRoot(),
-  CarouselModule.forRoot()
+  CarouselModule.forRoot(),
+  BsDropdownModule.forRoot(),
+
 ];
 const ngxModule = [
   PaginationModule.forRoot(),
   NgxSpinnerModule
 ]
+const Components = [
+  LineChartComponent,
+  BarChartComponent,
+  PagingHeaderComponent,
+  PagerComponent,
+  TextInputComponent,
+  BasketSummaryComponent
+]
 
 @NgModule({
   declarations: [
-    LineChartComponent,
-    BarChartComponent,
-    PagingHeaderComponent,
-    PagerComponent,
+    Components,
   ],
   imports: [
-    CommonModule,
+    CommonModule,    
+    FormsModule,
+    ReactiveFormsModule,
+    RouterModule,
     chartjsModule,
     bootstrapModule,
     ngxModule
@@ -60,12 +72,11 @@ const ngxModule = [
     }
   ],
   exports: [
-    LineChartComponent,
-    BarChartComponent,
+    // FormsModule,
+    ReactiveFormsModule,
     HighlightModule,
     ChartsModule,
-    PagerComponent,
-    PagingHeaderComponent,
+    Components,
     bootstrapModule,
     ngxModule,
   ]

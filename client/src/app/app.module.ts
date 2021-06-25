@@ -7,8 +7,9 @@ import { CoreModule } from './core/core.module';
 import { HomeModule } from './home/home.module';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { ShopChartsModule } from './shop-charts/shop-charts.module';
 import { LoadingInterceptor } from './core/interceptors/loading.interceptor';
+import { ShopChartsModule } from './shop-charts/shop-charts.module';
+import { JwtInterceptor } from './core/interceptors/jwt.interceptor';
 
 
 @NgModule({
@@ -23,11 +24,11 @@ import { LoadingInterceptor } from './core/interceptors/loading.interceptor';
     CoreModule, 
     HomeModule,
     HttpClientModule,
-    ShopChartsModule,    
-
+    ShopChartsModule 
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }
   ],
   bootstrap: [ AppComponent ]
 })

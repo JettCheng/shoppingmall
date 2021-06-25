@@ -33,8 +33,6 @@ export class ShopService {
   // }
 
   getProducts(): Observable<HttpResponse<IResponse<Array<IProduct>>>> {
-    console.log(this.shopParams)
-    console.log(this.paginationParams)
     let params = new HttpParams();
     if (this.shopParams.productTypeId !== '') {
       params = params.append('productTypeId', this.shopParams.productTypeId)

@@ -19,8 +19,8 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
     SharedModule,
     ShopRoutingModule
   ],
-  exports: [
-    ShopComponent
-  ]
+  // exports: [
+  //   ShopComponent
+  // ]
 })
 export class ShopModule { }

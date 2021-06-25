@@ -1,0 +1,18 @@
+<div class="d-flex justify-content-center mt-5">
+    <div class="col-5">
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <!-- <div class="text-center mb-4">
+                <h1 class="h3 mb-3 font-weight-normal">加入會員</h1>
+            </div> -->
+            <app-text-input formControlName="name" [label]="'Name'"></app-text-input>
+            <app-text-input formControlName="email" [label]="'Email address'"></app-text-input>
+            <app-text-input formControlName="password" [label]="'Password'" [type]="'password'"></app-text-input>
+            <ul class="text-danger list-unstyled" *ngIf="errors">
+                <li *ngFor="let error of errors">
+                    {{error}}
+                </li>
+            </ul>
+            <button  class="btn btn-lg btn-primary btn-block mt-3 mb-5" type="submit">確認送出</button>
+        </form>
+    </div>
+</div>

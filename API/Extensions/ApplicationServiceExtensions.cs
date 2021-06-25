@@ -1,6 +1,8 @@
+using Core.Entities;
 using Core.Interfaces;
 using Infrastructure.Repositories;
 using Infrastructure.Services;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -12,9 +14,12 @@ namespace API.Extensions
         {
             services.AddScoped<IProductRepository, ProductRepository>();
             // services.AddScoped<IProductImageRepository, ProductImageRepository>();
-            // services.AddScoped<ITokenService, TokenService>();
+            services.AddScoped<IAccountService, AccountService>();
             services.AddTransient<IPropertyMappingService, PropertyMappingService>();
             services.AddSingleton<IActionContextAccessor, ActionContextAccessor>();
+
+
+
             // services.AddScoped<IOrderService, OrderService>();
             // services.AddScoped<IPaymentService, PaymentService>();
             // services.AddScoped<IUnitOfWork, UnitOfWork>();
