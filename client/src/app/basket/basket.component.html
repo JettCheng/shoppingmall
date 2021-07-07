@@ -1,6 +1,6 @@
 <div class="container mt-2">
     <div *ngIf="(basket$ | async) === null">
-        <p>There are no items in your basket</p>
+        <p>您的購物車還沒有商品唷</p>
     </div>
 
     <div *ngIf="basket$ | async">

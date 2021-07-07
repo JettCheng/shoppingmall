@@ -40,16 +40,21 @@ namespace API
             services.AddDbContext<AppDbContext>(
                 option => option.UseSqlServer(_config["ConnectionStrings:Shop"]) 
             );
+            services.AddSingleton<IConnectionMultiplexer>(c => {
+                var configuartion = ConfigurationOptions.Parse(_config["ConnectionStrings:Redis"], true);
+                return ConnectionMultiplexer.Connect(configuartion);
+            });
             
             services.AddApplicationServices();
             services.AddIdentityServices(_config);
             services.AddSwaggerDocumentation();
-            services.AddSingleton<ConnectionMultiplexer>(c => {
-                var configuartion = ConfigurationOptions.Parse(_config["ConnectionStrings:Redis"], true);
-                return ConnectionMultiplexer.Connect(configuartion);
-            });
-
-            // services.AddScoped<IProductRepository, ProductRepository>();
+            // services.AddCors(opt =>
+            // {
+            //     opt.AddPolicy("CorsPolicy", policy =>
+            //     {
+            //         policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:4200");
+            //     });
+            // });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

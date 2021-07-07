@@ -3,12 +3,13 @@
   <img src="/assets/images/logo.png" style="max-height: 50px;" alt="logo" class="logo" routerLink="/">
   <nav class="my-2 my-md-0 me-md-3 text-uppercase" style="font-size: larger;">
     <a class="p-2" [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">首頁</a>
-    <a class="p-2" [routerLink]="['/about-me']" routerLinkActive="active">關於我</a>
+    <a class="p-2" [routerLink]="['/aboutme']" routerLinkActive="active">關於我</a>
     <a class="p-2" [routerLink]="['/shop']" routerLinkActive="active">線上商城</a>
   </nav>
   <div class="d-flex align-items-center">
     <a routerLink='/basket' class="position-relative">
       <i class="fa fa-shopping-cart fa-2x mr-5 text-dark"></i>
+      <!-- <div class="cart-no">8</div> -->
       <div *ngIf="(basket$ | async) as basket" class="cart-no">{{basket.items.length}}</div>
     </a>
     <ng-container *ngIf="(currentUser$ | async) as user">

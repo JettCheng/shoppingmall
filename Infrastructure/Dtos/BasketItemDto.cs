@@ -1,11 +1,11 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace API.Dtos
+namespace Core.Dtos
 {
     public class BasketItemDto
     {
         [Required]
-        public int Id { get; set; }
+        public string Id { get; set; }
 
         [Required]
         public string ProductTitle { get; set; }
@@ -18,10 +18,8 @@ namespace API.Dtos
         [Range(1, double.MaxValue, ErrorMessage = "數量必須大於 1")]
         public int Quantity { get; set; }
 
-        [Required]
         public string CoverImage { get; set; }
 
-        [Required]
         public string ProductType { get; set; }
     }
 }

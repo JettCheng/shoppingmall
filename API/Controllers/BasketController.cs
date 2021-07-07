@@ -1,6 +1,7 @@
 using System.Threading.Tasks;
-using API.Dtos;
+using API.Errors;
 using AutoMapper;
+using Core.Dtos;
 using Core.Entities;
 using Core.Interfaces;
 using Microsoft.AspNetCore.Mvc;
@@ -21,8 +22,13 @@ namespace API.Controllers
         public async Task<ActionResult<CustomerBasket>> GetBasketById(string id)
         {
             var basket = await _basketRepository.GetBasketAsync(id);
+            var CustomerBasketForReturn = basket != null ? 
+                new ApiResponseWithData<CustomerBasket>(200, basket):
+                new ApiResponseWithData<CustomerBasket>(200, new CustomerBasket(id));
 
-            return Ok(basket ?? new CustomerBasket(id));
+            return Ok(CustomerBasketForReturn);
+
+            // ?? → 雙問號左邊若為 null 則值為右邊 
         }
 
         [HttpPost]
@@ -32,7 +38,7 @@ namespace API.Controllers
  
             var updatedBasket = await _basketRepository.UpdateBasketAsync(customerBasket);
 
-            return Ok(updatedBasket);
+            return Ok(new ApiResponseWithData<CustomerBasket>(200, updatedBasket));
         }
 
         [HttpDelete]

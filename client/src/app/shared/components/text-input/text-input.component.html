@@ -11,8 +11,8 @@
     >
     <div *ngIf="controlDir?.control?.status === 'PENDING'" class="fa fa-spinner fa-spin loader"></div>
     <div class="invalid-feedback" *ngIf="(!controlDir?.control?.valid && controlDir?.control?.touched)">
-        <span *ngIf="controlDir.control!.errors?.required">{{label}} is required</span>
-        <span *ngIf="controlDir.control!.errors?.pattern">Invalid email address</span>
+        <span *ngIf="controlDir.control!.errors?.required">『{{label}}』為必填</span>
+        <span *ngIf="controlDir.control!.errors?.pattern">『信箱地址』格式錯誤</span>
     </div>
     <div class="invalid-feedback d-block" *ngIf="(!controlDir?.control?.valid && controlDir?.control?.dirty)" >
         <span *ngIf="controlDir.control!.errors?.emailExists">Email address is in use</span>

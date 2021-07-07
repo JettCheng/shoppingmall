@@ -11,10 +11,10 @@ export interface IBasket {
 
 export interface IBasketItem {
     id: string;
-    productName: string;
+    productTitle: string;
     price: number;
     quantity: number;
-    pictureUrl: string;
+    coverImage: string;
     type: string;
 }
 

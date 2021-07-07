@@ -55,7 +55,10 @@ namespace Infrastructure.Repositories
 
         public async Task<Product> GetProductByIdAsync(Guid productId)
         {
-            return await _context.Products.Include(p => p.ProductImages).FirstOrDefaultAsync(p => p.Id == productId);
+            return await _context.Products
+                .Include(p => p.ProductImages)
+                .Include(p => p.ProductType)
+                .FirstOrDefaultAsync(p => p.Id == productId);
         }
 
         public async Task<IPaginationList<Product>> GetProductsAsync(string keyword, string productTypeId, int pageSize, int pageIndex, string sort)

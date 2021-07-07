@@ -4,9 +4,9 @@
             <!-- <div class="text-center mb-4">
                 <h1 class="h3 mb-3 font-weight-normal">加入會員</h1>
             </div> -->
-            <app-text-input formControlName="name" [label]="'Name'"></app-text-input>
-            <app-text-input formControlName="email" [label]="'Email address'"></app-text-input>
-            <app-text-input formControlName="password" [label]="'Password'" [type]="'password'"></app-text-input>
+            <app-text-input formControlName="name" [label]="'姓名'"></app-text-input>
+            <app-text-input formControlName="email" [label]="'信箱地址'"></app-text-input>
+            <app-text-input formControlName="password" [label]="'密碼'" [type]="'password'"></app-text-input>
             <ul class="text-danger list-unstyled" *ngIf="errors">
                 <li *ngFor="let error of errors">
                     {{error}}

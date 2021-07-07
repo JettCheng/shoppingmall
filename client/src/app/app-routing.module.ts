@@ -1,16 +1,24 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AboutMeComponent } from './about-me/about-me.component';
 import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent, data: { breadcrumb: 'Home' } },
+  { 
+    path: '', component: HomeComponent,
+    data: { breadcrumb: {skip: true} }
+  },
+  { 
+    path: 'aboutme', component: AboutMeComponent,
+    data: { breadcrumb: {skip: true} }
+  },
   {
     path: 'shop', loadChildren: () => import('./shop/shop.module').then(mod => mod.ShopModule),
-    data: { breadcrumb: 'Shop' }
+    data: { breadcrumb: '商品' }
   },
   {
     path: 'basket', loadChildren: () => import('./basket/basket.module').then(mod => mod.BasketModule),
-    data: { breadcrumb: 'Basket' }
+    data: { breadcrumb: '購物車' }
   },
   // {
   //   path: 'checkout', 
