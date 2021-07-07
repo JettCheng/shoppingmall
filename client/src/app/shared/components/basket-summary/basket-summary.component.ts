@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { IBasketItem } from '../../model/basket';
+import { IBasketItem } from '../../models/basket';
 
 @Component({
   selector: 'app-basket-summary',

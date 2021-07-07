@@ -1,0 +1,9 @@
+  db:
+    image: mcr.microsoft.com/azure-sql-edge
+    restart: always
+    environment:
+      SA_PASSWORD: MyPass@word
+      SA_USER: SA
+      MSSQL_PID: Developer
+    ports:
+      - 1433:1433

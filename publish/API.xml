@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>API</name>
+    </assembly>
+    <members>
+        <member name="M:API.Controllers.AccountController.Login(Core.Dtos.LoginDto)">
+            <summary>
+            用戶登入
+            </summary>
+            <param name="loginDto"></param>   
+            <returns>令牌</returns>   
+        </member>
+        <member name="M:API.Controllers.AccountController.Register(Core.Dtos.RegisterDto)">
+            <summary>
+            新用戶註冊
+            </summary>
+            <param name="registerDto"></param>   
+            <returns>註冊資訊</returns>   
+        </member>
+        <member name="M:API.Controllers.AccountController.GetCurrentCustomer">
+            <summary>
+            取得當前用戶資訊
+            </summary>  
+            <returns>當前用戶資訊與新令牌</returns>  
+        </member>
+        <member name="M:API.Controllers.ProductsController.GetProducts(API.Parameters.PaginationParameters,API.Parameters.ProductParameters)">
+            <summary>
+            取得商品之商品資訊清單
+            </summary>
+            <param name="paginationParameters"></param>
+            <param name="productParameters"></param>
+            <returns>商品清單</returns>
+        </member>
+        <member name="M:API.Controllers.ProductsController.GetProductTypes">
+            <summary>
+            取得商品次分類
+            </summary> 
+            <returns>商品所有分類清單</returns>   
+        </member>
+        <member name="M:API.Controllers.ProductsController.GetProductById(System.Guid)">
+            <summary>
+            以商品編號取得該商品之商品資訊清單
+            </summary>
+            <param name="productId">商品編號</param>
+            <returns>商品</returns>   
+        </member>
+    </members>
+</doc>

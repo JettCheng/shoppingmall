@@ -100,17 +100,17 @@ namespace Infrastructure.Database.Identity.Migrations
                         {
                             Id = "90184155-dee0-40c9-bb1e-b5ed07afc04e",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "456d3ff6-9b2b-4898-acaa-de4c179aadd0",
+                            ConcurrencyStamp = "8d56ea5e-558e-460c-bb11-04a6acb15560",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "admin@mail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@MAIL.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEDgIVxQGZLzfHD4j459GaLd+n00KGRcod5n4c9VBfuRd+gKyQNUdQW8VQzjn/3pAmg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEFkn/jcczDo2ToZIMBrk1OKW/d9VriWfdwNK6MRInvxO7pqVwQKTpLDi/SD74M4Qvw==",
                             PhoneNumber = "0912345678",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "4969de33-4231-467e-8bfd-45babc4061bc",
+                            SecurityStamp = "5f52f424-8ca8-44c7-b6c6-21e18d346302",
                             TwoFactorEnabled = false,
                             UserName = "admin"
                         });
@@ -146,7 +146,7 @@ namespace Infrastructure.Database.Identity.Migrations
                         new
                         {
                             Id = "308660dc-ae51-480f-824d-7dca6714c3e2",
-                            ConcurrencyStamp = "73bf489e-8ad3-4e55-a784-f2156fb4f6f3",
+                            ConcurrencyStamp = "efe546a9-fc0f-4d18-ae6c-30b33d45e978",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });

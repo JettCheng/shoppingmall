@@ -3,6 +3,7 @@ using Core.Entities;
 using Infrastructure.Database.Identity;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
@@ -16,7 +17,7 @@ namespace Application.Extensions
             // Skinet-main
             var builder = services.AddIdentityCore<Customer>();
             builder = new IdentityBuilder(builder.UserType, builder.Services);
-            // builder.AddEntityFrameworkStores<AppIdentityDbContext>();
+            // builder.AddEntityFrameworkStores<IdentityDbContext>();
             // builder.AddSignInManager<SignInManager<Customer>>();
             builder.AddTokenProvider(config["Authentication:Issuer"], typeof(DataProtectorTokenProvider<Customer>));
 

@@ -72,7 +72,7 @@ namespace API.Controllers
 
 
         /// <summary>
-        /// 用戶註冊
+        /// 新用戶註冊
         /// </summary>
         /// <param name="registerDto"></param>   
         /// <returns>註冊資訊</returns>   

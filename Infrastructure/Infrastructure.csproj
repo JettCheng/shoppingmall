@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="Database\Domain\**" CopyToOutputDirectory="PreserveNewest" />
     <ProjectReference Include="..\Core\Core.csproj" />
   </ItemGroup>
-
 </Project>

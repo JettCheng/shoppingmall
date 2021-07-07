@@ -1,0 +1,232 @@
+Deploy to Linux using Docker - for use with .Net 5.0
+====================================================
+
+!@#EWF!#RV!#23r213rf3efdsc3422341!@#f
+
+0.1
+
+sudo apt-get install openssh-server
+sudo apt-get install net-tools
+ifconfig
+
+0.2
+
+sudo apt-get install docker-compose
+sudo apt-get install docker.io
+
+docker version
+
+sudo usermod -aG docker jettcheng
+sudo service docker start
+
+
+
+1. Create a new droplet with Digital Ocean using the Docker 19.03.12 on Ubuntu 20.04
+
+IP address: 128.199.253.3
+Password for root user: !@#EWF!#RV!#23r213rf3efdsc3422341!@#f
+
+2. Login to the droplet using either the terminal or Powershell:
+
+ssh root@128.199.253.3
+
+You will be asked for your password.   Enter this.
+
+3.  Create a new docker-compose file using the following command:
+
+sudo nano docker-compose.yml
+
+docker ps
+docker restart containerid
+
+
+4.  Copy and paste in the docker-compose configuration:
+
+  db:
+    image: mcr.microsoft.com/azure-sql-edge
+    restart: always
+    environment:
+      SA_PASSWORD: MyPass@word
+      SA_USER: SA
+      MSSQL_PID: Developer
+    ports: 
+      - 1433:1433
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+    
+volumes:
+  redis-data:
+
+5.  Run the following command to start the docker services
+
+sudo docker-compose up -d
+
+6.  Install and configure apache by running the following commands:
+
+sudo apt update
+sudo apt install apache2
+sudo a2enmod proxy proxy_http proxy_html rewrite
+sudo systemctl restart apache2
+sudo ufw app list
+sudo ufw allow 'Apache Full'
+sudo systemctl status apache2
+
+7.   Optional - allow the ports through the firewall to allow you to manage PostGreSQL and Redis via the ports.
+
+sudo ufw allow 8080/tcp
+sudo ufw allow 8081/tcp
+
+8.  Test you can access the default apache page by browsing to:  http://192.168.0.7/
+
+9.  Create a new directory that will contain our published dotnet app and assign rights to the user:
+
+sudo mkdir /var/shoppingmall
+sudo chown -R $USER:$USER /var/shoppingmall
+
+10.  Create a new config file for the shoppingmall app:
+
+sudo nano /etc/apache2/sites-available/shoppingmall.conf
+
+11.  Paste in the following configuration which will set up a reverse proxy with the Kestrel server:
+
+<VirtualHost *:80>
+    ServerAdmin webmaster@localhost
+    ProxyPreserveHost On
+    ProxyPass / http://127.0.0.1:5000/
+    ProxyPassReverse / http://127.0.0.1:5000
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+
+12.  Enable the shoppingmall site by running the following commands:
+
+sudo a2ensite shoppingmall
+sudo systemctl reload apache2
+
+ls /etc/apache2/sites-enabled
+sudo a2dissite 000-default  
+
+sudo systemctl reload apache2
+
+13.  Install the deploy reloaded extension.   Create a settings.json file in the .vscode directory and update the IP address and password for your server:
+
+{
+    "deploy.reloaded": {
+        "packages": [
+            {
+                "name": "Version 1.0.0",
+                "description": "Package version 1.0.0",
+
+                "files": [
+                    "publish/**"
+                ]
+            }
+        ],
+
+        "targets": [
+            {
+                "type": "sftp",
+                "name": "Linux",
+                "description": "SFTP folder",
+
+                "host": "ipaddress", "port": 22,
+                "user": "root", "password": "your password",
+
+                "dir": "/var/shoppingmall",
+                "mappings": {
+                    "publish/**": "/"
+                }
+            }
+        ]
+    }
+}
+
+14.  Optional - Change the logging level for the appsettings.json to information for the Microsoft logging level:
+
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft": "Information",
+      "Microsoft.Hosting.Lifetime": "Information"
+    }
+  },
+}
+
+15.  Republish the app with changes by running the following command in VS Code terminal:
+
+dotnet publish -c Release -o publish shoppingmall.sln
+
+16.  Deploy the files by using the command pallette -> deploy reloaded -> deploy package
+
+17.  Add an endpoint to stripe for to point to the IP address of the server and select the 2 events we want to listen to:  payment_intent.succeeded, payment_intent.payment_failed.  Note the web hook secret as we will need this soon.
+
+http://ipaddress/api/payments/webhook
+
+18.  Back on the linux server create a service config for the kestrel server:
+
+sudo nano /etc/systemd/system/shoppingmall-web.service
+
+19.  Update the configuration for your API keys where it says REPLACEME and then paste the config into the nano editor
+
+[Unit]
+Description=Kestrel service running on Ubuntu 20.04
+[Service]
+WorkingDirectory=/var/shoppingmall
+ExecStart=/usr/bin/dotnet /var/shoppingmall/API.dll
+Restart=always
+RestartSec=10
+SyslogIdentifier=shoppingmall
+User=www-data
+Environment=ASPNETCORE_ENVIRONMENT=Production
+Environment='Authentication__SecretKey=1QAZ@wsx3ED1QAZ@wsx3EDC$rfv!@#$QWERASDFzxcvC$rfv!@#$QWERASDFzxcv'
+Environment='ConnectionStrings__Shop=server=127.0.0.1; Database=ShoppingMall; User Id=SA; Password=MyPass@word'
+Environment='ConnectionStrings__Identity=Server=127.0.0.1; Database=ShoppingMallIdentity; User Id=SA; Password=MyPass@word'
+Environment='ConnectionStrings__Redis=redis://54801018@192.168.`238.130'
+Environment='ApiUrl=http://192.168.0.6/Content/'
+[Install]
+WantedBy=multi-user.target
+
+20.  Install the .Net runtime using the instructions here:  https://docs.microsoft.com/en-gb/dotnet/core/install/linux-ubuntu#2004-
+
+21.  Restart the journal service by running the following command:
+
+sudo systemctl restart systemd-journald
+
+22.  Start the kestrel service by running the following command:
+
+sudo systemctl start shoppingmall-web.service
+
+23.  Check it is started by running: 
+
+netstat -ntpl
+
+24.  Check the journal by running:
+
+journalctl -u shppingmall-web.service --since "5 min ago"
+
+25.  Make sure there are no errors and then test you can browse to the published app on http://ipaddress
+
+
+
+
+Start Apache 2 Server /啟動apache
+/etc/init.d/apache2 start
+or
+sudo /etc/init.d/apache2 start
+
+
+Restart Apache 2 Server /重啟apache
+/etc/init.d/apache2 restart
+or
+sudo /etc/init.d/apache2 restart
+
+Stop Apache 2 Server /停止apache
+
+/etc/init.d/apache2 stop
+or
+sudo /etc/init.d/apache2 stop

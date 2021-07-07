@@ -4,8 +4,8 @@ import { Router } from '@angular/router';
 import { of, ReplaySubject } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
-import { IResponse } from '../shared/model/response';
-import { IUser } from '../shared/model/user';
+import { IResponse } from '../shared/models/response';
+import { IUser } from '../shared/models/user';
 
 @Injectable({
   providedIn: 'root'

@@ -3,9 +3,9 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
-import { Basket, IBasket, IBasketItem, IBasketTotals } from '../shared/model/basket';
-import { IProduct } from '../shared/model/product';
-import { IResponse } from '../shared/model/response';
+import { Basket, IBasket, IBasketItem, IBasketTotals } from '../shared/models/basket';
+import { IProduct } from '../shared/models/product';
+import { IResponse } from '../shared/models/response';
 
 @Injectable({
   providedIn: 'root'

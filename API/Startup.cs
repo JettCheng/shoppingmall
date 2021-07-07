@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using API.Extensions;
 using API.Middleware;
 using Application.Extensions;
@@ -10,6 +11,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using StackExchange.Redis;
@@ -27,33 +29,27 @@ namespace API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddControllers();
-            // services.AddSwaggerGen(c =>
-            // {
-            //     c.SwaggerDoc("v1", new OpenApiInfo { Title = "API", Version = "v1" });
-            // }); 
-            services.AddSwaggerDocumentation();
-            services.AddIdentityServices(_config);
-
-            services.AddDbContext<AppDbContext>(
-                option => option.UseSqlServer(_config["ConnectionStrings:Shop"]) 
-            );
-            
             services.AddDbContext<AppIdentityDbContext>(
                 option =>
                 {
                     option.UseSqlServer(_config["ConnectionStrings:Identity"]);
                 }
             );
+            services.AddDbContext<AppDbContext>(
+                option => option.UseSqlServer(_config["ConnectionStrings:Shop"]) 
+            );
+            
+            services.AddApplicationServices();
+            services.AddIdentityServices(_config);
+            services.AddSwaggerDocumentation();
             services.AddSingleton<ConnectionMultiplexer>(c => {
                 var configuartion = ConfigurationOptions.Parse(_config["ConnectionStrings:Redis"], true);
                 return ConnectionMultiplexer.Connect(configuartion);
             });
-            services.AddApplicationServices();
 
             // services.AddScoped<IProductRepository, ProductRepository>();
-            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -61,13 +57,17 @@ namespace API
         {
             app.UseMiddleware<ExceptionMiddleware>();
 
-            if (env.IsDevelopment())
-            {
+            // if (env.IsDevelopment())
+            // {
                 app.UseSwaggerDocumentation();
-                // app.UseDeveloperExceptionPage();
-                // app.UseSwagger();
-                // app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "API v1"));
-            }
+            // }
+            app.UseStaticFiles(); // 
+            app.UseStaticFiles(new StaticFileOptions
+            {
+                FileProvider = new PhysicalFileProvider(
+                    Path.Combine(Directory.GetCurrentDirectory(), "Content")
+                ), RequestPath = "/content"
+            });
 
             app.UseHttpsRedirection();
 
@@ -78,6 +78,7 @@ namespace API
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapFallbackToController("Index", "Fallback");
             });
         }
     }
