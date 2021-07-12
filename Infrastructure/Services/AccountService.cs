@@ -34,7 +34,9 @@ namespace Infrastructure.Services
             var signingAlgorithm = SecurityAlgorithms.HmacSha256;
             var claims = new List<Claim>();
             claims.Add(new Claim(JwtRegisteredClaimNames.Email, customer.Email));
-            // claims.Add( new Claim("myClaim", "myClaim") );
+            // claims.Add( new Claim("myClaim", "myClaim"));                
+            claims.Add(new Claim(ClaimTypes.Email, customer.Email));
+
 
             var roleNames = await _userManager.GetRolesAsync(customer);
             foreach (var roleName in roleNames)

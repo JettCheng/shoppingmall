@@ -1,7 +1,12 @@
 Deploy to Linux using Docker - for use with .Net 5.0
 ====================================================
-
+常用指令
+ssh root@104.248.156.16
 !@#EWF!#RV!#23r213rf3efdsc3422341!@#f
+
+sudo systemctl restart apache2
+sudo systemctl reload apache2
+sudo systemctl stop apache2
 
 0.1
 
@@ -67,8 +72,8 @@ sudo docker-compose up -d
 
 6.  Install and configure apache by running the following commands:
 
-sudo apt update
-sudo apt install apache2
+sudo apt-get update
+sudo apt-get install apache2
 sudo a2enmod proxy proxy_http proxy_html rewrite
 sudo systemctl restart apache2
 sudo ufw app list
@@ -186,8 +191,8 @@ Environment=ASPNETCORE_ENVIRONMENT=Production
 Environment='Authentication__SecretKey=1QAZ@wsx3ED1QAZ@wsx3EDC$rfv!@#$QWERASDFzxcvC$rfv!@#$QWERASDFzxcv'
 Environment='ConnectionStrings__Shop=server=127.0.0.1; Database=ShoppingMall; User Id=SA; Password=MyPass@word'
 Environment='ConnectionStrings__Identity=Server=127.0.0.1; Database=ShoppingMallIdentity; User Id=SA; Password=MyPass@word'
-Environment='ConnectionStrings__Redis=redis://54801018@192.168.`238.130'
-Environment='ApiUrl=http://192.168.0.6/Content/'
+Environment='ConnectionStrings__Redis=localhost'
+Environment='ApiUrl=http://localhost:5000/Content/'
 [Install]
 WantedBy=multi-user.target
 

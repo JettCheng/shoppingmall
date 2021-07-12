@@ -17,7 +17,7 @@
                 "name": "Linux",
                 "description": "SFTP folder",
 
-                "host": "128.199.253.3", "port": 22,
+                "host": "104.248.156.16", "port": 22,
                 "user": "root", "password": "!@#EWF!#RV!#23r213rf3efdsc3422341!@#f",
 
                 "dir": "/var/shoppingmall",

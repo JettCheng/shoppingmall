@@ -12,8 +12,7 @@ namespace Core.Entities
         
         [ForeignKey("ProductId")]
         public Guid ProductId { get; set; }
-        
-        public Product Product { get; set; }
+        // public Product Product { get; set; }
 
         public ProductImageStatus Status { get; set; }
         

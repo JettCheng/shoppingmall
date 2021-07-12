@@ -5,14 +5,14 @@ namespace Core.Dtos
     public class BasketItemDto
     {
         [Required]
-        public string Id { get; set; }
+        public string ProductId { get; set; }
 
         [Required]
         public string ProductTitle { get; set; }
 
         [Required]
         [Range(0.1, double.MaxValue, ErrorMessage = "價格必須大於 0 ")]
-        public decimal Price { get; set; }
+        public double Price { get; set; }
 
         [Required]
         [Range(1, double.MaxValue, ErrorMessage = "數量必須大於 1")]

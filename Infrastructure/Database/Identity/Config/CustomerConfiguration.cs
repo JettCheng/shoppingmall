@@ -14,7 +14,6 @@ namespace Infrastructure.Data.Config
                 .WithOne()
                 .HasForeignKey(ur => ur.UserId)
                 .IsRequired();
-
             builder.HasMany(x => x.UserRoles)
                 .WithOne()
                 .HasForeignKey(ur => ur.UserId)

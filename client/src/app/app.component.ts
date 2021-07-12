@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { AccountService } from './account/account.service';
+import { BasketService } from './basket/basket.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,30 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  title = 'SkiNet';
 
+  constructor(private basketService: BasketService, private accountService: AccountService) { }
+
+  ngOnInit(): void {
+    this.loadBasket();
+    this.loadCurrentUser();
+  }
+
+  loadCurrentUser() {
+    const token = localStorage.getItem('token');
+    this.accountService.loadCurrentUser(token).subscribe(() => {
+    }, error => {
+      console.log(error);
+    })
+  }
+
+  loadBasket() {
+    const basketId = localStorage.getItem('basket_id');
+    if (basketId) {
+      this.basketService.getBasket(basketId).subscribe(() => {
+      }, error => {
+        console.log(error);
+      })
+    }
+  }
 }

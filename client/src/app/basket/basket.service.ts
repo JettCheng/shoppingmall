@@ -4,6 +4,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { Basket, IBasket, IBasketItem, IBasketTotals } from '../shared/models/basket';
+import { IDeliveryMethod } from '../shared/models/deliveryMethod';
 import { IProduct } from '../shared/models/product';
 import { IResponse } from '../shared/models/response';
 
@@ -20,14 +21,24 @@ export class BasketService {
 
   constructor(private http: HttpClient) { }
 
-  // setShippingPrice(deliveryMethod: IDeliveryMethod) {
-  //   this.shipping = deliveryMethod.price;
-  //   const basket = this.getCurrentBasketValue();
-  //   basket.deliveryMethodId = deliveryMethod.id;
-  //   basket.shippingPrice = deliveryMethod.price;
-  //   this.calculateTotals();
-  //   this.setBasket(basket);
-  // }
+  createPaymentIntent() {
+    return this.http.post(this.baseUrl + 'payments/' + this.getCurrentBasketValue().id, {})
+      .pipe(
+        map((basket: IBasket) => {
+          this.basketSource.next(basket);
+          console.log(this.getCurrentBasketValue());
+        })
+      )
+  }
+
+  setShippingPrice(deliveryMethod: IDeliveryMethod) {
+    this.shipping = deliveryMethod.price;
+    const basket = this.getCurrentBasketValue();
+    basket.deliveryMethodId = deliveryMethod.id;
+    basket.shippingPrice = deliveryMethod.price;
+    this.calculateTotals();
+    this.setBasket(basket);
+  }
   
   getBasket(id: string) {
     let params = new HttpParams();
@@ -43,10 +54,9 @@ export class BasketService {
   }
 
   setBasket(basket: IBasket) {
+    console.log('setbasket');
+    console.log(basket);
     return this.http.post<IResponse<IBasket>>(this.baseUrl + 'basket', basket).subscribe((response) => {
-      console.log(response)
-      console.log(response.statusCode)
-      console.log(response.data)
       this.basketSource.next(response.data);
       this.calculateTotals();
     }, error => {
@@ -59,6 +69,7 @@ export class BasketService {
   }
 
   addItemToBasket(item: IProduct, quantity = 1) {
+    console.log(item);
     const itemToAdd: IBasketItem = this.mapProductItemToBasketItem(item, quantity);
     const basket = this.getCurrentBasketValue() ?? this.createBasket();
     basket.items = this.addOrUpdateItem(basket.items, itemToAdd, quantity);
@@ -67,14 +78,14 @@ export class BasketService {
 
   incrementItemQuantity(item: IBasketItem) {
     const basket = this.getCurrentBasketValue();
-    const foundItemIndex = basket.items.findIndex(x => x.id === item.id);
+    const foundItemIndex = basket.items.findIndex(bi => bi.productId === item.productId);
     basket.items[foundItemIndex].quantity++;
     this.setBasket(basket);
   }
 
   decrementItemQuantity(item: IBasketItem) {
     const basket = this.getCurrentBasketValue();
-    const foundItemIndex = basket.items.findIndex(x => x.id === item.id);
+    const foundItemIndex = basket.items.findIndex(bi => bi.productId === item.productId);
     if (basket.items[foundItemIndex].quantity > 1) {
       basket.items[foundItemIndex].quantity--;
       this.setBasket(basket);
@@ -85,8 +96,8 @@ export class BasketService {
 
   removeItemFromBasket(item: IBasketItem) {
     const basket = this.getCurrentBasketValue();
-    if (basket.items.some(x => x.id === item.id)) {
-      basket.items = basket.items.filter(i => i.id !== item.id);
+    if (basket.items.some(bi => bi.productId === item.productId)) {
+      basket.items = basket.items.filter(bi => bi.productId !== item.productId);
       if (basket.items.length > 0) {
         this.setBasket(basket);
       } else {
@@ -121,7 +132,7 @@ export class BasketService {
 
 
   private addOrUpdateItem(items: IBasketItem[], itemToAdd: IBasketItem, quantity: number): IBasketItem[] {
-    const index = items.findIndex(i => i.id === itemToAdd.id);
+    const index = items.findIndex(i => i.productId === itemToAdd.productId);
     if (index === -1) {
       itemToAdd.quantity = quantity;
       items.push(itemToAdd);
@@ -141,10 +152,10 @@ export class BasketService {
 
   private mapProductItemToBasketItem(item: IProduct, quantity: number): IBasketItem {
     return {
-      id: item.id,
+      productId: item.id,
       productTitle: item.title,
       price: item.originalPrice,
-      coverImage: item.coverImageUrl,
+      coverImage: item.coverImage,
       quantity,
       type: item.productType.name
     }

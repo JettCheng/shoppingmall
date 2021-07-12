@@ -35,11 +35,12 @@ namespace API.Middleware
                 context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
                 
                 // 統整 Response 並儲存成 ApiException 格式，如果是開發環境
-                var response = _env.IsDevelopment()
-                    // 則顯示 StatusCode、錯誤訊息、Trace
-                    ? new ApiException((int)HttpStatusCode.InternalServerError, ex.Message, ex.StackTrace.ToString())
-                    // 否則只顯示 StatusCode
-                    : new ApiException((int)HttpStatusCode.InternalServerError);
+                var response = new ApiException((int)HttpStatusCode.InternalServerError, ex.Message, ex.StackTrace.ToString());
+                //     var response  = _env.IsDevelopment()
+                //     // 則顯示 StatusCode、錯誤訊息、Trace
+                //     ? new ApiException((int)HttpStatusCode.InternalServerError, ex.Message, ex.StackTrace.ToString())
+                //     // 否則只顯示 StatusCode
+                //     : new ApiException((int)HttpStatusCode.InternalServerError);
 
                 var options = new JsonSerializerOptions{PropertyNamingPolicy = JsonNamingPolicy.CamelCase};
                 

@@ -1,0 +1,26 @@
+[
+  {
+    "ShortName": "24HR",
+    "Description": "無",
+    "DeliveryTime": "24小時",
+    "Price": 100
+  },
+  {
+    "ShortName": "便利商店取貨",
+    "Description": "無",
+    "DeliveryTime": "2-5 日",
+    "Price": 80
+  },
+  {
+    "ShortName": "一般",
+    "Description": "無",
+    "DeliveryTime": "5-10 日",
+    "Price": 60
+  },
+  {
+    "ShortName": "自取",
+    "Description": "無",
+    "DeliveryTime": "2 週內",
+    "Price": 0
+  }
+]

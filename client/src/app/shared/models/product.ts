@@ -9,6 +9,6 @@ export interface IProduct {
     // rate: number
     status: number
     productType: IProductType
-    coverImageUrl:string
+    coverImage:string
     productImages: IProductImage[]
   }

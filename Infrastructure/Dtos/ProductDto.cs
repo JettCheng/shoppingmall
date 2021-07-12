@@ -13,7 +13,7 @@ namespace Infrastructure.Dtos
         public ProductTypeDto ProductType { get; set; }
         public double OriginalPrice { get; set; }
         public ProductStatus Status { get; set; }
-        public string CoverImageUrl { get; set; }    // 商品封面
+        public string CoverImage { get; set; }    // 商品封面
         public ICollection<ProductImageDto> ProductImages { get; set; }
     }
 }

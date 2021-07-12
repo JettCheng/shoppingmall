@@ -6,7 +6,7 @@
         "OriginalPrice": 4200,
         "Status": "Using",
         "Description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-        "CoverImageUrl": "http://placekitten.com/g/300/300"
+        "CoverImage": "http://placekitten.com/g/300/300"
     },
     {
         "Id": "6e33b0fb-300b-470a-a6f2-978a580bdddf",
@@ -15,7 +15,7 @@
         "OriginalPrice": 1500,
         "Status": "Using",
         "Description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-        "CoverImageUrl": "http://placekitten.com/g/300/300"
+        "CoverImage": "http://placekitten.com/g/300/300"
     },
     {
         "Id": "3b29be19-ce96-46ce-8dc5-c6bf34a02530",
@@ -24,7 +24,7 @@
         "OriginalPrice": 3300,
         "Status": "Using",
         "Description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-        "CoverImageUrl": "http://placekitten.com/g/300/300"
+        "CoverImage": "http://placekitten.com/g/300/300"
     },
     {
         "Id": "8da96b9e-91fa-4f84-bef0-e162eded6b29",
@@ -33,7 +33,7 @@
         "OriginalPrice": 500,
         "Status": "SoldOut",
         "Description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-        "CoverImageUrl": "http://placekitten.com/g/300/300"
+        "CoverImage": "http://placekitten.com/g/300/300"
     },
     {
         "Id": "118cda2b-cb82-4749-bd07-3d4bee175bb6",
@@ -42,7 +42,7 @@
         "OriginalPrice": 2200,
         "Status": "Using",
         "Description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-        "CoverImageUrl": "http://placekitten.com/g/300/300"
+        "CoverImage": "http://placekitten.com/g/300/300"
     },
     {
         "Id": "2d8fbdae-3835-4d03-8d20-924c1f6f6910",
@@ -51,7 +51,7 @@
         "OriginalPrice": 1000,
         "Status": "Using",
         "Description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-        "CoverImageUrl": "http://placekitten.com/g/300/300"
+        "CoverImage": "http://placekitten.com/g/300/300"
     },
     {
         "Id": "9de69a44-fee2-4c0a-b3c9-4d05e14ded8f",
@@ -60,7 +60,7 @@
         "OriginalPrice": 1000,
         "Status": "Using",
         "Description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-        "CoverImageUrl": "http://placekitten.com/g/300/300"
+        "CoverImage": "http://placekitten.com/g/300/300"
     },
     {
         "Id": "bc169dab-5c24-4fd5-af97-5e4a27121f69",
@@ -69,7 +69,7 @@
         "OriginalPrice": 1300,
         "Status": "SoldOut",
         "Description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-        "CoverImageUrl": "http://placekitten.com/g/300/300"
+        "CoverImage": "http://placekitten.com/g/300/300"
     },
     {
         "Id": "326ad98f-948c-4081-95c3-298dfe46a705",
@@ -78,7 +78,7 @@
         "OriginalPrice": 2500,
         "Status": "Using",
         "Description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-        "CoverImageUrl": "http://placekitten.com/g/300/300"
+        "CoverImage": "http://placekitten.com/g/300/300"
     },
     {
         "Id": "54d5e86b-f4fc-43a8-8fbf-a3d3733f6d85",
@@ -87,7 +87,7 @@
         "OriginalPrice": 2000,
         "Status": "Remove",
         "Description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-        "CoverImageUrl": "http://placekitten.com/g/300/300"
+        "CoverImage": "http://placekitten.com/g/300/300"
     },
     {
         "Id": "3eac1cc3-3166-4d1d-a8f0-59d32f0468be",
@@ -96,7 +96,7 @@
         "OriginalPrice": 1200,
         "Status": "SoldOut",
         "Description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-        "CoverImageUrl": "http://placekitten.com/g/300/300"
+        "CoverImage": "http://placekitten.com/g/300/300"
     },
     {
         "Id": "edbc6b1c-5e84-4127-bce3-67fb47bc11e4",
@@ -105,7 +105,7 @@
         "OriginalPrice": 1600,
         "Status": "Using",
         "Description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-        "CoverImageUrl": "http://placekitten.com/g/300/300"
+        "CoverImage": "http://placekitten.com/g/300/300"
     },
     {
         "Id": "907deaf0-cba5-491e-ab42-a20bbaaa040b",
@@ -114,7 +114,7 @@
         "OriginalPrice": 4200,
         "Status": "SoldOut",
         "Description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-        "CoverImageUrl": "http://placekitten.com/g/300/300"
+        "CoverImage": "http://placekitten.com/g/300/300"
     },
     {
         "Id": "02d9d1f8-2761-429d-b47f-1d45f62b1802",
@@ -123,7 +123,7 @@
         "OriginalPrice": 4900,
         "Status": "Using",
         "Description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-        "CoverImageUrl": "http://placekitten.com/g/300/300"
+        "CoverImage": "http://placekitten.com/g/300/300"
     },
     {
         "Id": "a2bf8a79-705e-47d4-a2bd-44049337d60b",
@@ -132,7 +132,7 @@
         "OriginalPrice": 1200,
         "Status": "Remove",
         "Description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-        "CoverImageUrl": "http://placekitten.com/g/300/300"
+        "CoverImage": "http://placekitten.com/g/300/300"
     },
     {
         "Id": "e340e14b-d498-4115-8698-6f7b7a5b8a5f",
@@ -141,7 +141,7 @@
         "OriginalPrice": 3800,
         "Status": "Using",
         "Description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-        "CoverImageUrl": "http://placekitten.com/g/300/300"
+        "CoverImage": "http://placekitten.com/g/300/300"
     },
     {
         "Id": "05420a89-ea89-40ca-bc5c-cd12f1afaf09",
@@ -150,7 +150,7 @@
         "OriginalPrice": 3400,
         "Status": "Using",
         "Description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-        "CoverImageUrl": "http://placekitten.com/g/300/300"
+        "CoverImage": "http://placekitten.com/g/300/300"
     },
     {
         "Id": "ce72684b-569f-4427-a539-f71f4c134372",
@@ -159,7 +159,7 @@
         "OriginalPrice": 400,
         "Status": "Using",
         "Description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-        "CoverImageUrl": "http://placekitten.com/g/300/300"
+        "CoverImage": "http://placekitten.com/g/300/300"
     },
     {
         "Id": "2a6557e9-7727-4854-9ac6-44756849bd41",
@@ -168,7 +168,7 @@
         "OriginalPrice": 1600,
         "Status": "Using",
         "Description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-        "CoverImageUrl": "http://placekitten.com/g/300/300"
+        "CoverImage": "http://placekitten.com/g/300/300"
     },
     {
         "Id": "a8238610-ba6a-44eb-a229-c1f90647bcf3",
@@ -177,7 +177,7 @@
         "OriginalPrice": 1700,
         "Status": "Using",
         "Description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-        "CoverImageUrl": "http://placekitten.com/g/300/300"
+        "CoverImage": "http://placekitten.com/g/300/300"
     },
     {
         "Id": "f0cb29ba-76d0-4737-8565-5de26e4c24e4",
@@ -186,7 +186,7 @@
         "OriginalPrice": 3000,
         "Status": "SoldOut",
         "Description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-        "CoverImageUrl": "http://placekitten.com/g/300/300"
+        "CoverImage": "http://placekitten.com/g/300/300"
     },
     {
         "Id": "22c4b828-0c4d-42ae-9c9e-d339c1fa951d",
@@ -195,7 +195,7 @@
         "OriginalPrice": 3900,
         "Status": "Remove",
         "Description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-        "CoverImageUrl": "http://placekitten.com/g/300/300"
+        "CoverImage": "http://placekitten.com/g/300/300"
     },
     {
         "Id": "f54924cc-8c8a-4afc-869a-d67c89815e8c",
@@ -204,7 +204,7 @@
         "OriginalPrice": 1100,
         "Status": "Using",
         "Description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-        "CoverImageUrl": "http://placekitten.com/g/300/300"
+        "CoverImage": "http://placekitten.com/g/300/300"
     },
     {
         "Id": "b285cf2b-55ea-4d7a-acf3-3f32ae27f195",
@@ -213,7 +213,7 @@
         "OriginalPrice": 2100,
         "Status": "SoldOut",
         "Description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-        "CoverImageUrl": "http://placekitten.com/g/300/300"
+        "CoverImage": "http://placekitten.com/g/300/300"
     },
     {
         "Id": "2513250e-261d-4efa-b874-83cd1267c8ce",
@@ -222,7 +222,7 @@
         "OriginalPrice": 500,
         "Status": "Using",
         "Description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-        "CoverImageUrl": "http://placekitten.com/g/300/300"
+        "CoverImage": "http://placekitten.com/g/300/300"
     },
     {
         "Id": "7854cc1b-64ab-4062-aa0f-ba02aeb36ce6",
@@ -231,7 +231,7 @@
         "OriginalPrice": 500,
         "Status": "Using",
         "Description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-        "CoverImageUrl": "http://placekitten.com/g/300/300"
+        "CoverImage": "http://placekitten.com/g/300/300"
     },
     {
         "Id": "945ce915-201f-4605-b4cd-8db15ca5836b",
@@ -240,7 +240,7 @@
         "OriginalPrice": 1400,
         "Status": "Remove",
         "Description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-        "CoverImageUrl": "http://placekitten.com/g/300/300"
+        "CoverImage": "http://placekitten.com/g/300/300"
     },
     {
         "Id": "4226947b-a632-45b1-9e3d-28b708fa91a9",
@@ -249,7 +249,7 @@
         "OriginalPrice": 500,
         "Status": "Using",
         "Description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-        "CoverImageUrl": "http://placekitten.com/g/300/300"
+        "CoverImage": "http://placekitten.com/g/300/300"
     },
     {
         "Id": "57f7fce4-1f00-4da9-bd57-2e1c30b1260a",
@@ -258,7 +258,7 @@
         "OriginalPrice": 3900,
         "Status": "Using",
         "Description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-        "CoverImageUrl": "http://placekitten.com/g/300/300"
+        "CoverImage": "http://placekitten.com/g/300/300"
     },
     {
         "Id": "6d540f22-1587-4b73-bfd0-a467ae00ac22",
@@ -267,7 +267,7 @@
         "OriginalPrice": 3800,
         "Status": "Using",
         "Description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-        "CoverImageUrl": "http://placekitten.com/g/300/300"
+        "CoverImage": "http://placekitten.com/g/300/300"
     },
     {
         "Id": "438838e4-ef46-4f60-af23-b8060c52ce78",
@@ -276,7 +276,7 @@
         "OriginalPrice": 600,
         "Status": "Using",
         "Description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-        "CoverImageUrl": "http://placekitten.com/g/300/300"
+        "CoverImage": "http://placekitten.com/g/300/300"
     },
     {
         "Id": "67a82b71-b359-48d2-84aa-fe4a6cd9be80",
@@ -285,7 +285,7 @@
         "OriginalPrice": 1000,
         "Status": "SoldOut",
         "Description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-        "CoverImageUrl": "http://placekitten.com/g/300/300"
+        "CoverImage": "http://placekitten.com/g/300/300"
     },
     {
         "Id": "d36210e7-e4c2-4826-b288-5a8f67ca5793",
@@ -294,7 +294,7 @@
         "OriginalPrice": 5000,
         "Status": "Remove",
         "Description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-        "CoverImageUrl": "http://placekitten.com/g/300/300"
+        "CoverImage": "http://placekitten.com/g/300/300"
     },
     {
         "Id": "88dfcf99-43e4-4823-b88b-0cff516a5c38",
@@ -303,7 +303,7 @@
         "OriginalPrice": 3500,
         "Status": "SoldOut",
         "Description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-        "CoverImageUrl": "http://placekitten.com/g/300/300"
+        "CoverImage": "http://placekitten.com/g/300/300"
     },
     {
         "Id": "4b898315-cb1a-42b1-8a16-71f7e7a422d7",
@@ -312,7 +312,7 @@
         "OriginalPrice": 600,
         "Status": "Using",
         "Description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-        "CoverImageUrl": "http://placekitten.com/g/300/300"
+        "CoverImage": "http://placekitten.com/g/300/300"
     },
     {
         "Id": "c3773ce0-19aa-4e5e-8bd1-b579ff85c426",
@@ -321,7 +321,7 @@
         "OriginalPrice": 1200,
         "Status": "SoldOut",
         "Description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-        "CoverImageUrl": "http://placekitten.com/g/300/300"
+        "CoverImage": "http://placekitten.com/g/300/300"
     },
     {
         "Id": "299e65a7-5827-49b1-b08d-df237a7b01a7",
@@ -330,7 +330,7 @@
         "OriginalPrice": 2300,
         "Status": "Using",
         "Description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-        "CoverImageUrl": "http://placekitten.com/g/300/300"
+        "CoverImage": "http://placekitten.com/g/300/300"
     },
     {
         "Id": "6b62b0f7-45a8-4032-8aeb-402af3ae8406",
@@ -339,7 +339,7 @@
         "OriginalPrice": 1500,
         "Status": "Remove",
         "Description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-        "CoverImageUrl": "http://placekitten.com/g/300/300"
+        "CoverImage": "http://placekitten.com/g/300/300"
     },
     {
         "Id": "6050fe69-74d3-4f50-9fc4-a78c4fc72609",
@@ -348,7 +348,7 @@
         "OriginalPrice": 2900,
         "Status": "Remove",
         "Description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-        "CoverImageUrl": "http://placekitten.com/g/300/300"
+        "CoverImage": "http://placekitten.com/g/300/300"
     },
     {
         "Id": "b065f698-e3b6-42d0-8534-75f6d27618e7",
@@ -357,7 +357,7 @@
         "OriginalPrice": 2400,
         "Status": "Remove",
         "Description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-        "CoverImageUrl": "http://placekitten.com/g/300/300"
+        "CoverImage": "http://placekitten.com/g/300/300"
     },
     {
         "Id": "bce11432-c2a8-4ad2-a49c-2a44bfe6a16d",
@@ -366,7 +366,7 @@
         "OriginalPrice": 1500,
         "Status": "Using",
         "Description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-        "CoverImageUrl": "http://placekitten.com/g/300/300"
+        "CoverImage": "http://placekitten.com/g/300/300"
     },
     {
         "Id": "5a27d0b2-e094-47ca-9a99-1b825439f107",
@@ -375,7 +375,7 @@
         "OriginalPrice": 3000,
         "Status": "Using",
         "Description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-        "CoverImageUrl": "http://placekitten.com/g/300/300"
+        "CoverImage": "http://placekitten.com/g/300/300"
     },
     {
         "Id": "1f757f9c-b268-41bd-8749-f995cbb468ea",
@@ -384,7 +384,7 @@
         "OriginalPrice": 2700,
         "Status": "Using",
         "Description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-        "CoverImageUrl": "http://placekitten.com/g/300/300"
+        "CoverImage": "http://placekitten.com/g/300/300"
     },
     {
         "Id": "94fd8580-d2dc-42ac-a29a-d7a855e74a80",
@@ -393,7 +393,7 @@
         "OriginalPrice": 4900,
         "Status": "Using",
         "Description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-        "CoverImageUrl": "http://placekitten.com/g/300/300"
+        "CoverImage": "http://placekitten.com/g/300/300"
     },
     {
         "Id": "5f2ae358-c830-4d59-addf-db8db428d87f",
@@ -402,7 +402,7 @@
         "OriginalPrice": 300,
         "Status": "SoldOut",
         "Description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-        "CoverImageUrl": "http://placekitten.com/g/300/300"
+        "CoverImage": "http://placekitten.com/g/300/300"
     },
     {
         "Id": "f9aabc94-e10a-4fbe-9cf3-92fc0f6e7a73",
@@ -411,7 +411,7 @@
         "OriginalPrice": 100,
         "Status": "Remove",
         "Description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-        "CoverImageUrl": "http://placekitten.com/g/300/300"
+        "CoverImage": "http://placekitten.com/g/300/300"
     },
     {
         "Id": "65c5da59-0427-424c-a610-02793217e6a0",
@@ -420,7 +420,7 @@
         "OriginalPrice": 500,
         "Status": "Remove",
         "Description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-        "CoverImageUrl": "http://placekitten.com/g/300/300"
+        "CoverImage": "http://placekitten.com/g/300/300"
     },
     {
         "Id": "35cc7908-ad9f-4211-8668-fb8a2954134d",
@@ -429,7 +429,7 @@
         "OriginalPrice": 3300,
         "Status": "Using",
         "Description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-        "CoverImageUrl": "http://placekitten.com/g/300/300"
+        "CoverImage": "http://placekitten.com/g/300/300"
     },
     {
         "Id": "50175acc-dfbf-43ac-86aa-aee37f804f5c",
@@ -438,7 +438,7 @@
         "OriginalPrice": 3600,
         "Status": "SoldOut",
         "Description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-        "CoverImageUrl": "http://placekitten.com/g/300/300"
+        "CoverImage": "http://placekitten.com/g/300/300"
     },
     {
         "Id": "1808d7cf-405a-4302-9944-f1767f5ab9ff",
@@ -447,6 +447,6 @@
         "OriginalPrice": 1400,
         "Status": "Remove",
         "Description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-        "CoverImageUrl": "http://placekitten.com/g/300/300"
+        "CoverImage": "http://placekitten.com/g/300/300"
     }
 ]

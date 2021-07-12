@@ -25,9 +25,9 @@ namespace Core.Entities
 
         public ProductStatus Status { get; set; }
         
-        public string CoverImageUrl { get; set; }    // 商品封面
+        public string CoverImage { get; set; }    // 商品封面
 
-        public ICollection<ProductImage> ProductImages { get; set; }
+        public ICollection<ProductImage> ProductImages { get; set; } = new List<ProductImage>();
     }
 
     public enum ProductStatus

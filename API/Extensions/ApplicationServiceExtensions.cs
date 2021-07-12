@@ -17,13 +17,12 @@ namespace API.Extensions
             services.AddScoped<IAccountService, AccountService>();
             services.AddTransient<IPropertyMappingService, PropertyMappingService>();
             services.AddSingleton<IActionContextAccessor, ActionContextAccessor>();
-
-
-
-            // services.AddScoped<IOrderService, OrderService>();
+            services.AddScoped<IOrderRepository, OrderRepository>();
+            services.AddScoped<IOrderService, OrderService>();
             // services.AddScoped<IPaymentService, PaymentService>();
             // services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IBasketRepository, BasketRepository>();
+            services.AddScoped<IDeliveryMethodRepository, DeliveryMethodRepository>();
             // services.AddScoped(typeof(IGenericRepository<>), (typeof(GenericRepository<>)));
             
             // Model state 與 自定義驗證有關
