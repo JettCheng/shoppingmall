@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutMeComponent } from './about-me/about-me.component';
+import { AboutSiteComponent } from './about-site/about-site.component';
 import { AuthGuard } from './core/guards/auth.guard';
 import { HomeComponent } from './home/home.component';
 
@@ -10,8 +11,12 @@ const routes: Routes = [
     data: { breadcrumb: '首頁' }
   },
   { 
-    path: 'aboutme', component: AboutMeComponent,
+    path: 'about-me', component: AboutMeComponent,
     data: { breadcrumb: '關於我' }
+  },
+  { 
+    path: 'about-site', component: AboutSiteComponent,
+    data: { breadcrumb: '關於網站' }
   },
   {
     path: 'shop', 
