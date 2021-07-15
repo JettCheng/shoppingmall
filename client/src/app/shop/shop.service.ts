@@ -25,13 +25,6 @@ export class ShopService {
 
   constructor(private http: HttpClient) { }
 
-  // getProducts(): Observable<HttpResponse<IResponse<Array<IProduct>>>> {
-  //   let params = new HttpParams();
-    
-  //   return this.http.get<IResponse<Array<IProduct>>>(this.baseUrl + 'products/all', { observe: 'response', params });
-  
-  // }
-
   getProducts(): Observable<HttpResponse<IResponse<Array<IProduct>>>> {
     let params = new HttpParams();
     if (this.shopParams.productTypeId !== '') {
@@ -73,24 +66,15 @@ export class ShopService {
     this.paginationParams = params;
   }
 
-  // getProductsTemp(shopParams: ShopParams, pagination: Pagination): Observable<HttpResponse<IResponse<Array<IProduct>>>> {
-  //   var url = this.baseUrl + "products/items?";
+  createProduct(newProduct: IProduct) {
+    return this.http.post<IResponse<IProduct>>(this.baseUrl + 'products', newProduct);
+  }
 
-  //   let params = new HttpParams();
+  removeProduct(productId: string) {
+    return this.http.delete(this.baseUrl + 'products/' + productId);
+  }
 
-  //   if (shopParams.productTypeId !== '') {
-  //     params = params.append('productTypeId', shopParams.productTypeId)
-  //   }
-
-  //   if (shopParams.keyword !== '') {
-  //     params = params.append('keyword', shopParams.keyword)
-  //   }
-
-  //   params = params.append('orderBy', shopParams.sort);
-  //   params = params.append('pageNumber', pagination.PageIndex.toString());
-  //   params = params.append('pageSize', pagination.PageSize.toString());
-
-
-  //   return this.http.get<IResponse<Array<IProduct>>>(url, { observe: 'response', params });
-  // }
+  updateProduct(productId, product: IProduct) {
+    return this.http.put(this.baseUrl + 'products/', product);
+  }
 }

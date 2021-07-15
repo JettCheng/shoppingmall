@@ -19,6 +19,7 @@ import { OrderTotalsComponent } from './components/order-totals/order-totals.com
 
 import { CdkStepperModule } from '@angular/cdk/stepper';
 import { StepperComponent } from './components/stepper/stepper.component';
+import { NgxGalleryModule } from '@kolkov/ngx-gallery';
 
 const bootstrapModules = [
   AccordionModule.forRoot(),
@@ -29,6 +30,7 @@ const bootstrapModules = [
 const ngxModules = [
   PaginationModule.forRoot(),
   NgxSpinnerModule,
+  NgxGalleryModule
 ]
 const components = [
   PagingHeaderComponent,

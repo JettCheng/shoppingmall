@@ -13,7 +13,7 @@ namespace Core.Interfaces
         Task<Product> GetProductByIdAsync(Guid productId);
         Task<IPaginationList<Product>> GetProductsAsync(string keyword, string productTypeId, int pageSize, int pageNumber, string sort);
         void AddProduct(Product product);
-        void DeleteProduct(Product product);
+        void DeleteProductById(Product product);
 
         Task<IEnumerable<ProductType>> GetProductTypesAsync();
 

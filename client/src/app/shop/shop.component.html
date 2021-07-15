@@ -13,26 +13,27 @@
                 <div class="d-flex justify-content-between align-items-center pb-2">
                     <accordion class="accordion" [closeOthers]="true">
                         <button (click)="onAllProductClick()" class="btn btn-primary ml-4 mb-3 mt-3">全部商品</button>
-                        <ng-container class="list-group-item" *ngFor="let productTypeLevel1 of productTypeList">
-                            <accordion-group heading="{{productTypeLevel1.name}}">
+                        <ng-container class="list-group-item" *ngFor="let productTypeLevel0 of productTypeList">
+                            <accordion-group heading="{{productTypeLevel0.name}}">
                                 <ng-container class="list-group-item"
-                                    *ngFor="let productTypeLevel2 of productTypeLevel1.childType">
-                                    <p (click)="onProductTypeSelected(productTypeLevel2.id)"
-                                        style="cursor: pointer; text-align: center;">{{productTypeLevel2.name}}</p>
+                                    *ngFor="let productTypeLevel1 of productTypeLevel0.childType">
+                                    <p (click)="onProductTypeSelected(productTypeLevel1.id)"
+                                        style="cursor: pointer; text-align: center;">{{productTypeLevel1.name}}</p>
                                 </ng-container>
                             </accordion-group>
                         </ng-container>
                     </accordion>
-                </div>
+                 </div>
             </ng-container>
         </section>
         <section class="col-9">
             <div class="d-flex justify-content-between align-items-center pb-2">
-
-                <app-paging-header [totalCount]="this.paginationParams.TotalCount"
-                    [pageIndex]="this.paginationParams.PageIndex" [pageSize]="this.paginationParams.PageSize">
-                </app-paging-header>
-                <div class="form-inline mt-2" *ngIf="products">
+                <app-paging-header 
+                    [totalCount]="this.paginationParams.TotalCount"
+                    [pageIndex]="this.paginationParams.PageIndex" 
+                    [pageSize]="this.paginationParams.PageSize"
+                ></app-paging-header>
+                 <div class="form-inline mt-2" *ngIf="products">
                     <input (keyup.enter)="onSearch()" type="text" class="form-control mr-2" #search
                         placeholder="請輸入關鍵字">
                     <button (click)="onSearch()" class="btn btn-outline-primary my-2 fa fa-search"></button>
@@ -46,8 +47,12 @@
             </div>
             <h1 class="d-flex justify-content-center mt-5" *ngIf="this.paginationParams.TotalCount <= 0">{{error}}</h1>
             <div class="d-flex justify-content-center" *ngIf="this.paginationParams.TotalCount > 0">
-                <app-pager [pageSize]="this.paginationParams.PageSize" [totalCount]="this.paginationParams.TotalCount"
-                    [pageIndex]="this.paginationParams.PageIndex" (pageChanged)="onPageChanged($event)"></app-pager>
+                <app-pager 
+                    [pageSize]="this.paginationParams.PageSize" 
+                    [totalCount]="this.paginationParams.TotalCount"
+                    [pageIndex]="this.paginationParams.PageIndex" 
+                    (pageChanged)="onPageChanged($event)"
+                ></app-pager>
             </div>
         </section>
     </div>

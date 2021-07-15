@@ -10,10 +10,9 @@ import { IAddress } from 'src/app/shared/models/address';
   styleUrls: ['./checkout-address.component.scss']
 })
 export class CheckoutAddressComponent implements OnInit {
-  @Input() checkoutForm: FormGroup;
+  @Input() checkoutForm: FormGroup; // 若需操作 checkout form 則這邊開接口
 
-  constructor(private accountService: AccountService
-    , private toastr: ToastrService
+  constructor(private accountService: AccountService, private toastr: ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -24,7 +23,7 @@ export class CheckoutAddressComponent implements OnInit {
       this.toastr.success('地址已儲存');
       this.checkoutForm.get('addressForm').reset(address);
     }, error => {
-      this.toastr.error(error.message);
+      this.toastr.error('建立失敗，您有必填資料尚未填寫');
       console.log(error);
     })
   }

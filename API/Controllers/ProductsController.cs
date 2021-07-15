@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Net;
 using System.Threading.Tasks;
 using API.Errors;
 using API.Extensions;
@@ -8,6 +9,7 @@ using AutoMapper;
 using Core.Entities;
 using Core.Interfaces;
 using Infrastructure.Dtos;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.AspNetCore.Mvc.Routing;
@@ -101,5 +103,85 @@ namespace API.Controllers
             var productDto = _mapper.Map<ProductDto>(productFromRepo);
             return Ok( new ApiResponseWithData<ProductDto>(200, productDto) );
         }
+
+        /// <summary>
+        /// 新增商品 (可包含商品圖片)
+        /// </summary>
+        /// <param name="productForCreationDto"></param>   
+        /// <returns>商品</returns> 
+        // [Authorize]
+        // [Authorize(AuthenticationSchemes = "Bearer")]
+        [HttpPost] 
+        public async Task<IActionResult> CreateProduct([FromBody] ProductForCreationDto productForCreationDto)
+        {
+            var productModel = _mapper.Map<Product>(productForCreationDto);
+            _productRepository.AddProduct(productModel);
+            await _productRepository.SaveAsync();
+            var productToReturn = _mapper.Map<ProductDto>(productModel);
+            return CreatedAtRoute(
+                "GetProductById",
+                new {productId = productToReturn.Id},
+                new ApiResponseWithData<ProductDto>(200, productToReturn) 
+            );
+        }
+
+
+        /// <summary>
+        /// 對特定商品編號之商品進行刪除
+        /// </summary>
+        /// <param name="productId">商品編號</param>   
+        /// <returns>無</returns>   
+        // [Authorize]
+        // [Authorize(AuthenticationSchemes = "Bearer")]
+        [HttpDelete("{productId}")]
+        public async Task<IActionResult> DeleteProductById([FromRoute] Guid productId)
+        {
+            // 確認是否有此Id的商品
+            if (!(await _productRepository.ProductExistAsync(productId)))
+            {
+                return NotFound( new ApiResponse(404, "查無此商品:" + productId) );
+            }
+
+            // 取出該商品的資料
+            var productFromRepo = await _productRepository.GetProductByIdAsync(productId);
+
+            // 刪除該商品
+            _productRepository.DeleteProductById(productFromRepo);
+
+            // 儲存結果至資料庫
+            await _productRepository.SaveAsync();
+
+            return NoContent();
+        }
+
+                /// <summary>
+        /// 對指定商品編號之商品資訊進行整體內容修改
+        /// </summary>
+        /// <param name="productId">商品編號</param>   
+        /// <param name="productForUpdateDto"></param>   
+        /// <returns>無</returns>
+        // [Authorize]
+        // [Authorize(AuthenticationSchemes = "Bearer")]
+        [HttpPut("{productId}")]
+        public async Task<IActionResult> UpdateProduct( [FromRoute] Guid productId, [FromBody] ProductForUpdateDto productForUpdateDto)
+        {
+            // 確認是否有此Id的商品
+            if (!(await _productRepository.ProductExistAsync(productId)))
+            {
+                return NotFound( new ApiResponse(404, "查無此商品:" + productId) );
+            }
+
+            // 取出該商品的資料
+            var productFromRepo = await _productRepository.GetProductByIdAsync(productId);
+
+            // 用 AutoMapper 映射新的修改資料到 Entity
+            _mapper.Map(productForUpdateDto, productFromRepo);
+
+            // 儲存結果至資料庫
+            await _productRepository.SaveAsync();
+
+            return NoContent();
+        }
+
     }
 }

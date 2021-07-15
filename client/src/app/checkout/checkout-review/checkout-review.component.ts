@@ -11,7 +11,7 @@ import { IBasket } from 'src/app/shared/models/basket';
   styleUrls: ['./checkout-review.component.scss']
 })
 export class CheckoutReviewComponent implements OnInit {
-  @Input() appStepper: CdkStepper;
+  @Input() appStepper: CdkStepper; // 欲僅做確認，不做動作直接下一步
   basket$: Observable<IBasket>;
 
   constructor(private basketService: BasketService, private toastr: ToastrService) { }

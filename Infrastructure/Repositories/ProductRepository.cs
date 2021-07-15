@@ -44,12 +44,16 @@ namespace Infrastructure.Repositories
 
         public void AddProduct(Product product)
         {
-            throw new NotImplementedException();
+            if (product == null)
+            {
+                throw new ArgumentNullException(nameof(product));
+            }
+            _context.Products.Add(product);        
         }
 
-        public void DeleteProduct(Product product)
+        public void DeleteProductById(Product product)
         {
-            throw new NotImplementedException();
+            _context.Products.Remove(product);
         }
 
 
@@ -101,14 +105,14 @@ namespace Infrastructure.Repositories
             throw new NotImplementedException();
         }
 
-        public Task<bool> ProductExistAsync(Guid productId)
+        public async Task<bool> ProductExistAsync(Guid productId)
         {
-            throw new NotImplementedException();
+            return await _context.Products.AnyAsync(p => p.Id == productId);
         }
 
-        public Task<bool> SaveAsync()
+        public async Task<bool> SaveAsync()
         {
-            throw new NotImplementedException();
+            return (await _context.SaveChangesAsync() >= 0);
         }
     }
 }

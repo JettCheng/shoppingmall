@@ -40,6 +40,13 @@ const routes: Routes = [
     loadChildren: () => import('./account/account.module').then(mod => mod.AccountModule),
     data: { breadcrumb: {skip: true} }
   },
+  {
+    path: 'product-management', 
+    canActivate: [AuthGuard],
+    loadChildren: () => import('./cms/cms.module').then(mod => mod.CmsModule),
+    data: { breadcrumb: '商品管理' }
+  },
+
   { path: '**', redirectTo: 'not-found', pathMatch: 'full' }
 ];
 @NgModule({

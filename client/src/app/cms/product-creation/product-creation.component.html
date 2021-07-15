@@ -1,0 +1,78 @@
+<app-product-info 
+    [productInfoForm]="productForCreationForm" 
+    [productTypeLevel0]="productTypeLevel0"
+    [productTypeLevel1]="productTypeLevel1"
+></app-product-info>
+<!-- <div class="container">
+    <form [formGroup]="productForCreationForm" #ngForm="ngForm" (ngSubmit)="onSubmit()">
+        <div class="row mt-3">
+            <div class="col-6" style="height: 400px;">
+                <ngx-gallery [options]="galleryOptions" [images]="galleryImages" class="ngx-gallery"></ngx-gallery>
+            </div>
+            <div class="col-6">
+                <div class="card shadow-sm bg-info text-white mb-3">
+                    <div class="card-body d-flex flex-column">
+                        <app-text-input formControlName="title" [label]="'＊標題'"></app-text-input>
+                        <app-text-input formControlName="originalPrice" [label]="'＊價格'"></app-text-input>
+                    </div>
+                </div>
+                <div class="card shadow-sm bg-info text-white mb-3">
+                    <div class="card-body d-flex flex-column">
+                        <h6 class="mt-2">＊商品分類<span class="invalid-feedback d-block" *ngIf="productTypeLevel1Selected===''&&ngForm.submitted">『商品分類』為必填</span>
+                        </h6>
+                        <select class="form-select form-control mt-2" (change)="onProductTypeLevel0Selected($event.target.value)">
+                            <option 
+                            *ngFor="let type of productTypeLevel0"
+                            [value]="type.id"
+                            >
+                            {{type.name}}  
+                            </option>
+                        </select>
+                        <select class="form-select form-control mt-2 mb-3" [disabled]="productTypeLevel0Selected===''" (change)="onProductTypeLevel1Selected($event.target.value)">
+                            <option 
+                            *ngFor="let type of productTypeLevel1Filted"
+                            [value]="type.id"
+                            >
+                            {{type.name}}  
+                            </option>
+                        </select>
+                    </div>  
+                </div>  
+            </div>
+            <div class="col-6">
+                <div class="row" >
+                    <div class="col-4 mb-3" *ngFor="let image of galleryImages; let index=index" >
+                            <img [src]="image.small"  style="width: 60%;" >
+                            <button class="btn btn-primary fa fa-trash" style="width: 25%; height: 100%" type="button" (click)="onDeleteLocalProductImage(index)"></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                <div class="card shadow-sm bg-info text-white mb-3">
+                    <div class="card-body d-flex flex-column">
+                        <input type="text" class="form-control" formControlName="url"  placeholder="請輸入圖片網址">
+                        <button class="btn btn-primary fa fa-plus" (click)="onSetLocalProductImage(productForCreationForm.get('url').value)" type="button"> </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3">        
+            <div class="col-12"> 
+                <div class="card shadow-sm bg-info text-white mb-3">
+                    <div class="card-body d-flex flex-column">
+                        <app-text-input formControlName="description" [label]="'＊商品描述'"></app-text-input>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div> 
+        <div class="row mt-3 ">
+            <div class="col-12">        
+                <button 
+                class="btn btn-lg btn-primary btn-block mb-5"
+                type="submit"
+                >確認送出</button>
+            </div>
+        </div>
+    </form>
+</div> -->

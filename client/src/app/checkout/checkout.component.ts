@@ -11,19 +11,19 @@ import { IBasketTotals } from '../shared/models/basket';
   styleUrls: ['./checkout.component.scss']
 })
 export class CheckoutComponent implements OnInit {
-  checkoutForm: FormGroup;
+  checkoutForm: FormGroup; // Checkout form 建在父層，再由html傳入子層，繼續二度操作
   basketTotals$: Observable<IBasketTotals>;
 
   constructor(private fb: FormBuilder, private accountService: AccountService, private basketService: BasketService) { }
 
   ngOnInit(): void {
-    this.createCheckoutForm();
+    this.initailCheckoutForm(); 
     this.getAddressFormValues();
     this.getDeliveryMethodValue();
     this.basketTotals$ = this.basketService.basketTotal$;
   }
 
-  createCheckoutForm() {
+  initailCheckoutForm() {
     this.checkoutForm = this.fb.group({
       addressForm: this.fb.group({
         firstName: [null, Validators.required],
@@ -58,4 +58,6 @@ export class CheckoutComponent implements OnInit {
       this.checkoutForm.get('deliveryForm').get('deliveryMethod').patchValue(basket.deliveryMethodId.toString());
     }
   }
+
+  
 }

@@ -45,5 +45,27 @@
             <param name="productId">商品編號</param>
             <returns>商品</returns>   
         </member>
+        <member name="M:API.Controllers.ProductsController.CreateProduct(Infrastructure.Dtos.ProductForCreationDto)">
+            <summary>
+            新增商品 (可包含商品圖片)
+            </summary>
+            <param name="productForCreationDto"></param>   
+            <returns>商品</returns> 
+        </member>
+        <member name="M:API.Controllers.ProductsController.DeleteProductById(System.Guid)">
+            <summary>
+            對特定商品編號之商品進行刪除
+            </summary>
+            <param name="productId">商品編號</param>   
+            <returns>無</returns>   
+        </member>
+        <member name="M:API.Controllers.ProductsController.UpdateProduct(System.Guid,Infrastructure.Dtos.ProductForUpdateDto)">
+            <summary>
+            對指定商品編號之商品資訊進行整體內容修改
+            </summary>
+            <param name="productId">商品編號</param>   
+            <param name="productForUpdateDto"></param>   
+            <returns>無</returns>
+        </member>
     </members>
 </doc>
